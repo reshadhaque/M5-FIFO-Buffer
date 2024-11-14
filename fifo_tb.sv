@@ -11,6 +11,8 @@ logic wr, rd;
 logic [DATA_WIDTH-1:0] w_data, r_data;
 logic full, empty;
 
+//Instantiate design under test
+fifo #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) dut(.*);
 //10ns clock running forever
 always
 begin

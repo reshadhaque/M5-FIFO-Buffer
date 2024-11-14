@@ -16,6 +16,6 @@ module reg_file #(parameter ADDR_WIDTH = 3, DATA_WIDTH = 8)(
             memory[w_addr]<=w_data;
     end
     //Asynchronous read
-    assign r_data = memory[r_data];
+    assign r_data = memory[r_addr];
 
 endmodule
