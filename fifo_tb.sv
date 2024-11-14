@@ -111,7 +111,113 @@ begin
     wr = 1'b0;
 
 
+    //------------------FULL-----------------
 
+    //Read
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(negedge clk)
+    rd = 1'b0;
+
+      //Read
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(negedge clk)
+    rd = 1'b0;
+
+      //Read
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(negedge clk)
+    rd = 1'b0;
+
+      //Read
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(negedge clk)
+    rd = 1'b0;
+
+      //Read
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(negedge clk)
+    rd = 1'b0;
+
+      //Read
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(negedge clk)
+    rd = 1'b0;
+
+      //Read
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(negedge clk)
+    rd = 1'b0;
+
+      //Read
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(negedge clk)
+    rd = 1'b0;
+
+    //------------EMPTY------------------
+
+    //Read and write at the same time
+
+    repeat(1)@(negedge clk)
+    w_data = 8'd17;
+    wr = 1'b1;
+    rd = 1'b1;
+    @(nededge clk)
+    wr = 1'b0;
+    rd = 1'b0;
+
+
+    //Read while empty
+
+    repeat(1)@(negedge clk)
+    rd = 1'b1;
+    @(nededge clk)
+    rd = 1'b0;
+
+
+    //----------MAKE IT NOT EMPTY--------------
+
+    repeat(1)@(negedge clk)
+    w_data = 8'd12;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+    repeat(1)@(negedge clk)
+    w_data = 8'd4;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+
+    repeat(1)@(negedge clk)
+    w_data = 8'd23;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+    //Read and Write at the same time
+    repeat(1)@(negedge clk)
+    w_data = 8'd11;
+    wr = 1'b1;
+    rd = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+    rd = 1'b0;
+
+    repeat(3)@(negedge clk);
+    $stop;
+    
 end
 
 endmodule
