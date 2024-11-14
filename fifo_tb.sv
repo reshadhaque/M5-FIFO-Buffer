@@ -3,7 +3,7 @@
 module fifo_tb.sv();
 
 localparam DATA_WIDTH = 8;
-localparam ADDR_WIDTH = 3;
+localparam ADDR_WIDTH = 3; //The circular Queue FIFO Buffer has 2^3 = 8 Spaces With a DATA bit with of 8 bits each
 localparam T = 10; //Clock period
 
 logic clk, reset;
@@ -31,5 +31,87 @@ begin
 end
 
 //generate test vectors
+
+initial
+begin
+    //-------------EMPTY---------------
+    //Write
+    @(negedge clk)
+    w_data = 8'd5;
+    wr = 1'b1;
+    @(negedge clk);
+    wr = 1'b0;
+
+
+    //Write
+    repeat(1) @(negedge clk)
+    w_data = 8'd8;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+    //Write
+    repeat(1) @(negedge clk)
+    w_data = 8'd12;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+
+    //Write
+    repeat(1) @(negedge clk)
+    w_data = 8'd2;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+
+     repeat(1) @(negedge clk)
+    w_data = 8'd9;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+    //Write
+    repeat(1) @(negedge clk)
+    w_data = 8'd14;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+
+    //Write
+    repeat(1) @(negedge clk)
+    w_data = 8'd13;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+
+     //Write
+    repeat(1) @(negedge clk)
+    w_data = 8'd6;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+
+    //Write
+    repeat(1) @(negedge clk)
+    w_data = 8'd7;
+    wr = 1'b1;
+    @(negedge clk)
+    wr = 1'b0;
+
+
+
+end
 
 endmodule
