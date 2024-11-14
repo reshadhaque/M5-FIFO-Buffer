@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module fifo_tb.sv();
+module fifo_tb();
 
 localparam DATA_WIDTH = 8;
 localparam ADDR_WIDTH = 3; //The circular Queue FIFO Buffer has 2^3 = 8 Spaces With a DATA bit with of 8 bits each
@@ -30,13 +30,13 @@ begin
     reset = 1'b0;
 end
 
-//generate test vectors
+//Generate test vectors
 
 initial
 begin
     //-------------EMPTY---------------
     //Write
-    @(negedge clk)
+    @(negedge clk);
     w_data = 8'd5;
     wr = 1'b1;
     @(negedge clk);
@@ -44,15 +44,15 @@ begin
 
 
     //Write
-    repeat(1) @(negedge clk)
+    repeat(1) @(negedge clk);
     w_data = 8'd8;
     wr = 1'b1;
-    @(negedge clk)
+    @(negedge clk);
     wr = 1'b0;
 
 
     //Write
-    repeat(1) @(negedge clk)
+    repeat(1) @(negedge clk);
     w_data = 8'd12;
     wr = 1'b1;
     @(negedge clk)
@@ -61,7 +61,7 @@ begin
 
 
     //Write
-    repeat(1) @(negedge clk)
+    repeat(1) @(negedge clk);
     w_data = 8'd2;
     wr = 1'b1;
     @(negedge clk)
@@ -69,7 +69,7 @@ begin
 
 
 
-     repeat(1) @(negedge clk)
+     repeat(1) @(negedge clk);
     w_data = 8'd9;
     wr = 1'b1;
     @(negedge clk)
@@ -77,7 +77,7 @@ begin
 
 
     //Write
-    repeat(1) @(negedge clk)
+    repeat(1) @(negedge clk);
     w_data = 8'd14;
     wr = 1'b1;
     @(negedge clk)
@@ -86,7 +86,7 @@ begin
 
 
     //Write
-    repeat(1) @(negedge clk)
+    repeat(1) @(negedge clk);
     w_data = 8'd13;
     wr = 1'b1;
     @(negedge clk)
@@ -95,7 +95,7 @@ begin
 
 
      //Write
-    repeat(1) @(negedge clk)
+    repeat(1) @(negedge clk);
     w_data = 8'd6;
     wr = 1'b1;
     @(negedge clk)
@@ -104,7 +104,7 @@ begin
 
 
     //Write
-    repeat(1) @(negedge clk)
+    repeat(1) @(negedge clk);
     w_data = 8'd7;
     wr = 1'b1;
     @(negedge clk)
@@ -114,49 +114,49 @@ begin
     //------------------FULL-----------------
 
     //Read
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
     @(negedge clk)
     rd = 1'b0;
 
       //Read
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
     @(negedge clk)
     rd = 1'b0;
 
       //Read
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
     @(negedge clk)
     rd = 1'b0;
 
       //Read
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
     @(negedge clk)
     rd = 1'b0;
 
       //Read
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
     @(negedge clk)
     rd = 1'b0;
 
       //Read
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
     @(negedge clk)
     rd = 1'b0;
 
       //Read
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
     @(negedge clk)
     rd = 1'b0;
 
       //Read
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
     @(negedge clk)
     rd = 1'b0;
@@ -165,33 +165,33 @@ begin
 
     //Read and write at the same time
 
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     w_data = 8'd17;
     wr = 1'b1;
     rd = 1'b1;
-    @(nededge clk)
+    @(negedge clk)
     wr = 1'b0;
     rd = 1'b0;
 
 
     //Read while empty
 
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     rd = 1'b1;
-    @(nededge clk)
+    @(negedge clk)
     rd = 1'b0;
 
 
     //----------MAKE IT NOT EMPTY--------------
 
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     w_data = 8'd12;
     wr = 1'b1;
     @(negedge clk)
     wr = 1'b0;
 
 
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     w_data = 8'd4;
     wr = 1'b1;
     @(negedge clk)
@@ -199,7 +199,7 @@ begin
 
 
 
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     w_data = 8'd23;
     wr = 1'b1;
     @(negedge clk)
@@ -207,7 +207,7 @@ begin
 
 
     //Read and Write at the same time
-    repeat(1)@(negedge clk)
+    repeat(1)@(negedge clk);
     w_data = 8'd11;
     wr = 1'b1;
     rd = 1'b1;
@@ -217,7 +217,7 @@ begin
 
     repeat(3)@(negedge clk);
     $stop;
-    
+
 end
 
 endmodule
