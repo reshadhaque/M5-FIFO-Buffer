@@ -28,7 +28,7 @@ logic empty_next;
             end
         else
             begin
-                wr_ptr<=wr_ptr+next;
+                wr_ptr<=wr_ptr_next;
                 rd_ptr<=rd_ptr_next;
                 full <= full_next;
                 empty<=empty_next;
@@ -81,9 +81,8 @@ logic empty_next;
                     end
 
             end
-            default: //2;b00
+            default: ; //2;b00
         endcase
-
         //outputs
         assign w_addr = wr_ptr;
         assign r_addr = rd_ptr;
